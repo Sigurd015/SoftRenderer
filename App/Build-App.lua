@@ -1,5 +1,4 @@
 project "App"
-   kind "ConsoleApp"
    language "C++"
    cppdialect "C++20"
    targetdir "Binaries/%{cfg.buildcfg}"
@@ -28,17 +27,20 @@ project "App"
        defines { "WINDOWS" }
 
    filter "configurations:Debug"
+       kind "ConsoleApp"
        defines { "DEBUG" }
        runtime "Debug"
        symbols "On"
 
    filter "configurations:Release"
+       kind "ConsoleApp"
        defines { "RELEASE" }
        runtime "Release"
        optimize "On"
        symbols "On"
 
    filter "configurations:Dist"
+       kind "WindowedApp"
        defines { "DIST" }
        runtime "Release"
        optimize "On"

@@ -5,6 +5,9 @@ project "Core"
    targetdir "Binaries/%{cfg.buildcfg}"
    staticruntime "off"
 
+   pchheader "pch.h"
+   pchsource "Source/pch.cpp"
+
    files { "Source/**.h", "Source/**.cpp" }
 
    includedirs
@@ -17,7 +20,7 @@ project "Core"
 
    filter "system:windows"
        systemversion "latest"
-       defines { }
+       defines { "WINDOWS" }
 
    filter "configurations:Debug"
        defines { "DEBUG" }

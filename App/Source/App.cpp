@@ -1,6 +1,23 @@
-#include "Core/Core.h"
+#include "Core.h"
+#include "EntryPoint.h"
 
-int main()
+namespace CORE
 {
-	Core::PrintHelloWorld();
+	class TestApp : public Application
+	{
+	public:
+		TestApp(const CORE::ApplicationSpecification& specification) : CORE::Application(specification)
+		{}
+
+		~TestApp()
+		{}
+	};
+}
+
+CORE::Application* CORE::CreateApplication(ApplicationCommandLineArgs args)
+{
+	CORE::ApplicationSpecification spec;
+	spec.Name = "App";
+
+	return new TestApp(spec);
 }
